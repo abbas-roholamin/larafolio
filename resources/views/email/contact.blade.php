@@ -1,5 +1,5 @@
-<h3> You have contact request</h3>
-<table>
+<h3 class="font-sans"> You have contact request</h3>
+<table class="table-auto font-sans text-sm">
     <tr>
         <th>
             name
