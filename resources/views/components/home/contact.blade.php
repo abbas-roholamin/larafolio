@@ -68,7 +68,7 @@
                             email:'',
                             message:''
                         },
-                        error:{},
+                        errors:{},
                         successMessage:'',
 
                         submitForm(event){
@@ -82,8 +82,8 @@
                                     'X-CSRF-TOKEN': document.querySelector(`meta[name='csrf-token']`).getAttribute(`content`)
                                 },
                                 body: JSON.stringify(this.formData)
-                            }).then(response =>{
-                                if(response == 200){
+                            }).then(response => {
+                                if(response.status == 200){
                                     return response.json();
                                 }
                                 throw response;
@@ -103,30 +103,36 @@
                         }
 
                     }" x-on:submit.prevent="submitForm">
-                            <template x-if="successMessage">
-                                <div x-text="successMessage"></div>
+                            <template x-if="successMessage" class="w-full text-center" role="alert">
+                                <div class="p-4 mb-4 text-sm text-green-700 dark:bg-white bg-green-100 rounded-lg dark:text-green-900"
+                                    role="alert">
+                                    <span class="font-medium" x-text="successMessage"></span>
+                                </div>
                             </template>
                             @csrf
                             <div class="mb-6">
-                                <x-form.input type="text" placeholder="Your Name" x-model="formData.name">
+                                <x-form.input type="text" placeholder="Your Name" x-model="formData.name"
+                                    ::class="errors.name ? 'border-red-500 focus:border-red-500 dark:border-red-500 dark:focus:border-red-500' : ''">
                                 </x-form.input>
-                                {{-- <template x-if='errors.name'>
-                                    <div x-text="errors.name[0]" class="text-red-500"></div>
-                                </template> --}}
+                                <template x-if='errors.name'>
+                                    <div x-text="errors.name[0]" class="text-red-500 text-sm"></div>
+                                </template>
                             </div>
                             <div class="mb-6">
-                                <x-form.input type="email" placeholder="Your Email" x-model="formData.email">
+                                <x-form.input type="email" placeholder="Your Email" x-model="formData.email"
+                                    ::class="errors.email ? 'border-red-500 focus:border-red-500 dark:border-red-500 dark:focus:border-red-500' : ''">
                                 </x-form.input>
-                                {{-- <template x-if="errors.email">
-                                    <div x-text="errors.email[0]" class="text-red-500"></div>
-                                </template> --}}
+                                <template x-if="errors.email">
+                                    <div x-text="errors.email[0]" class="text-red-500 text-sm"></div>
+                                </template>
                             </div>
                             <div class="mb-6">
-                                <x-form.text-area rows="4" placeholder="Your Message" x-model="formData.message">
+                                <x-form.text-area rows="4" placeholder="Your Message" x-model="formData.message"
+                                    ::class="errors.message ? 'border-red-500 focus:border-red-500 dark:border-red-500 dark:focus:border-red-500' : ''">
                                 </x-form.text-area>
-                                {{-- <template x-if="errors.message">
-                                    <div x-text="errors.message[0]" class="text-red-500"></div>
-                                </template> --}}
+                                <template x-if="errors.message">
+                                    <div x-text="errors.message[0]" class="text-red-500 text-sm"></div>
+                                </template>
                             </div>
                             <div>
                                 <x-common.button type=" ">Send Message</x-common.button>
