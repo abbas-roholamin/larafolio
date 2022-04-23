@@ -73,10 +73,10 @@
 
                         submitForm(event){
                             this.successMessage = '';
-                            this.error = {};
+                            this.errors = {};
                             fetch('/contact/submit',{
                                 method:'POST',
-                                header:{
+                                headers:{
                                     'Content-Type': 'application/json',
                                     'X-Requested-With': 'XMLHttpRequest',
                                     'X-CSRF-TOKEN': document.querySelector(`meta[name='csrf-token']`).getAttribute(`content`)
@@ -97,10 +97,8 @@
                             }).catch(async (response) => {
                                 const res = await response.json();
                                 if( response.status == 422){
-                                    this.error = res.error;
+                                    this.errors = res.errors;
                                 }
-                                console.log(res);
-
                             });
                         }
 
@@ -112,15 +110,15 @@
                             <div class="mb-6">
                                 <x-form.input type="text" placeholder="Your Name" x-model="formData.name">
                                 </x-form.input>
-                                {{-- <template x-if="errors.name">
+                                {{-- <template x-if='errors.name'>
                                     <div x-text="errors.name[0]" class="text-red-500"></div>
                                 </template> --}}
                             </div>
                             <div class="mb-6">
                                 <x-form.input type="email" placeholder="Your Email" x-model="formData.email">
                                 </x-form.input>
-                                {{-- <template x-if="error.email">
-                                    <div x-text="error.email[0]" class="text-red-500"></div>
+                                {{-- <template x-if="errors.email">
+                                    <div x-text="errors.email[0]" class="text-red-500"></div>
                                 </template> --}}
                             </div>
                             <div class="mb-6">
