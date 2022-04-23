@@ -33,8 +33,8 @@
                     </h2>
                     <p class="mb-8 text-base text-body-color dark:text-gray-400">
                         Motivated Web application designer & developer with experience creating small and medium web
-                        applications through JavaScript (React) and PHP (Laravel). Strong collaboration skills and
-                        proven history of web application development.
+                        applications through JavaScript (React, Next, Vue, Svelt) and PHP (Laravel). Strong
+                        collaboration skills and proven history of web application development.
                     </p>
                     <p class="mb-12 text-base text-body-color dark:text-gray-400">
                         <strong>Languages and Tools:</strong> HTML, Css, Bootstrap, Sass, Less, Tailwindcss,
