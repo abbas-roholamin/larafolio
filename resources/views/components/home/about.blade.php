@@ -32,19 +32,14 @@
                         About me
                     </h2>
                     <p class="mb-8 text-base text-body-color dark:text-gray-400">
-                        It is a long established fact that a reader will be distracted
-                        by the readable content of a page when looking at its layout.
-                        The point of using Lorem Ipsum is that it has a more-or-less.
+                        Motivated Web application designer & developer with experience creating small and medium web
+                        applications through JavaScript (React) and PHP (Laravel). Strong collaboration skills and
+                        proven history of web application development.
                     </p>
                     <p class="mb-12 text-base text-body-color dark:text-gray-400">
-                        A domain name is one of the first steps to establishing your
-                        brand. Secure a consistent brand image with a domain name that
-                        matches your business.
+                        <strong>Languages and Tools:</strong> HTML, Css, Bootstrap, Sass, Less, Tailwindcss,
+                        JavaScript, React, Vue, Next, Svelt, PHP, Laravel, SQL, MySQL, Redux, Git …
                     </p>
-                    <a href="javascript:void(0)"
-                        class="inline-flex items-center justify-center rounded-lg bg-primary py-4 px-10 text-center text-base font-normal text-white hover:bg-opacity-90 lg:px-8 xl:px-10">
-                        Get Started
-                    </a>
                 </div>
             </div>
         </div>
